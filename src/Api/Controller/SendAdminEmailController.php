@@ -64,9 +64,6 @@ class SendAdminEmailController implements ControllerInterface
                 $users = $this->users->query()->whereVisibleTo($actor)->get();
 
                 foreach ($users as $user) {
-                    var_dump($user->email);
-                    var_dump($data['subject']);
-                    var_dump($data['text']);
                     $this->sendMail($user->email, $data['subject'], $data['text']);
                 }
             } else {
